@@ -1,0 +1,1 @@
+bru run --env-file environments/preprod.yml --reporter-json results.json --reporter-junit results.xml --reporter-html results.html

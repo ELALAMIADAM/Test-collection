@@ -1,0 +1,231 @@
+[
+  {
+    "iterationIndex": 0,
+    "results": [
+      {
+        "test": {
+          "filename": "register.yml"
+        },
+        "request": {
+          "method": "POST",
+          "url": "https://api.efi-academy.com/user-api/public/register",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"name\": \"Dan McDermott MD\",\n  \"email\": \"Brandyn.Rosenbaum70@gmail.com\",\n  \"password\": \"vIliGmklYSoD1iz\",\n  \"role\": \"admin\"\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "server": "nginx",
+            "date": "Wed, 16 Sep 2026 12:38:16 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "156",
+            "connection": "close",
+            "x-powered-by": "PHP/8.2.31",
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "access-control-allow-headers": "Content-Type, Authorization"
+          },
+          "data": {
+            "success": true,
+            "message": "Compte créé avec succès.",
+            "user": {
+              "id": 2017,
+              "name": "Dan McDermott MD",
+              "email": "Brandyn.Rosenbaum70@gmail.com",
+              "role": "admin"
+            }
+          },
+          "url": "https://api.efi-academy.com/user-api/public/register",
+          "responseTime": 165,
+          "duration": 165,
+          "size": 156
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [
+          {
+            "description": "code status 201",
+            "status": "pass",
+            "uid": "3faYlw4Sosa0NQwUCzvyJ"
+          },
+          {
+            "description": "body res=req",
+            "status": "pass",
+            "uid": "xhfAP2sPaO_plUJazSbu7"
+          }
+        ],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.4191884,
+        "name": "register",
+        "suitename": "C:\\Users\\adam\\OneDrive\\Documents\\bruno\\Test API bruno\\collections\\Test collection\\register",
+        "path": "register.yml",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "login.yml"
+        },
+        "request": {
+          "method": "POST",
+          "url": "https://api.efi-academy.com/user-api/public/login",
+          "headers": {
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"email\": \"Brandyn.Rosenbaum70@gmail.com\",\n  \"password\": \"vIliGmklYSoD1iz\"\n}"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx",
+            "date": "Wed, 16 Sep 2026 12:38:16 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "439",
+            "connection": "close",
+            "x-powered-by": "PHP/8.2.31",
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "access-control-allow-headers": "Content-Type, Authorization"
+          },
+          "data": {
+            "success": true,
+            "message": "Connexion réussie.",
+            "token_type": "Bearer",
+            "expires_in": 3600,
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1c2VyLWFwaSIsInN1YiI6MjAxNywicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg5NTYyMjk2LCJleHAiOjE3ODk1NjU4OTYsImp0aSI6Ijg3YzBiOTA1MTA4MDAzMzhlOGRkNGZiNjIwODNkOGJmIn0.ePcYVNhQTIQUEJ5bYCdX0Yws6yThymdSv9NzL7DG3MM",
+            "user": {
+              "id": 2017,
+              "name": "Dan McDermott MD",
+              "email": "Brandyn.Rosenbaum70@gmail.com",
+              "role": "admin"
+            }
+          },
+          "url": "https://api.efi-academy.com/user-api/public/login",
+          "responseTime": 136,
+          "duration": 136,
+          "size": 439
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [
+          {
+            "description": "code status 200",
+            "status": "pass",
+            "uid": "SEv7pJOmq77C3SY6z1omk"
+          },
+          {
+            "description": "body res=req",
+            "status": "pass",
+            "uid": "ndDzY8MarDthSfCBAq75I"
+          }
+        ],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.2036651,
+        "name": "login",
+        "suitename": "C:\\Users\\adam\\OneDrive\\Documents\\bruno\\Test API bruno\\collections\\Test collection\\login",
+        "path": "login.yml",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Ajouter Produit.yml"
+        },
+        "request": {
+          "method": "POST",
+          "url": "https://api.efi-academy.com/user-api/public/products",
+          "headers": {
+            "Authorization": "Bearer ********",
+            "content-type": "application/json"
+          },
+          "data": "{\n  \"name\": \"Sleek Cotton Towels\",\n  \"description\": \"Chips\",\n  \"price\": 98.7,\n  \"stock\": 28,\n  \"image_url\": \"https://...\"\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "server": "nginx",
+            "date": "Wed, 16 Sep 2026 12:38:17 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "201",
+            "connection": "close",
+            "vary": "Authorization",
+            "x-powered-by": "PHP/8.2.31",
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "access-control-allow-headers": "Content-Type, Authorization"
+          },
+          "data": {
+            "success": true,
+            "message": "Produit créé.",
+            "product": {
+              "id": 636,
+              "name": "Sleek Cotton Towels",
+              "description": "Chips",
+              "price": 98.7,
+              "stock": 28,
+              "image_url": "https://...",
+              "created_at": "2026-09-16 12:38:17"
+            }
+          },
+          "url": "https://api.efi-academy.com/user-api/public/products",
+          "responseTime": 87,
+          "duration": 87,
+          "size": 201
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [
+          {
+            "description": "code status 201 or 403",
+            "status": "fail",
+            "error": "expected 403 to equal 201",
+            "uid": "Ox1ax57CV4YOtnM8eMSSo"
+          },
+          {
+            "description": "body res=req",
+            "status": "pass",
+            "uid": "Z3mOkMvYkzOOfAXWXhTaJ"
+          }
+        ],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.2305972,
+        "name": "Ajouter Produit",
+        "suitename": "C:\\Users\\adam\\OneDrive\\Documents\\bruno\\Test API bruno\\collections\\Test collection\\Ajouter Produit",
+        "path": "Ajouter Produit.yml",
+        "iterationIndex": 0
+      }
+    ],
+    "summary": {
+      "totalRequests": 3,
+      "passedRequests": 2,
+      "failedRequests": 1,
+      "errorRequests": 0,
+      "skippedRequests": 0,
+      "skippedByBail": 0,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0,
+      "totalPreRequestTests": 0,
+      "passedPreRequestTests": 0,
+      "failedPreRequestTests": 0,
+      "totalPostResponseTests": 6,
+      "passedPostResponseTests": 5,
+      "failedPostResponseTests": 1
+    }
+  }
+]

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="register" file="register.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-16T12:38:17.862" hostname="OnePiece" time="0.419">
+    <testcase name="code status 201" status="pass" classname="register" time="0.210"/>
+    <testcase name="body res=req" status="pass" classname="register" time="0.210"/>
+  </testsuite>
+  <testsuite name="login" file="login.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-16T12:38:17.864" hostname="OnePiece" time="0.204">
+    <testcase name="code status 200" status="pass" classname="login" time="0.102"/>
+    <testcase name="body res=req" status="pass" classname="login" time="0.102"/>
+  </testsuite>
+  <testsuite name="Ajouter Produit" file="Ajouter Produit.yml" errors="0" failures="1" skipped="0" tests="2" timestamp="2026-09-16T12:38:17.864" hostname="OnePiece" time="0.231">
+    <testcase name="code status 201 or 403" status="fail" classname="Ajouter Produit" time="0.115">
+      <failure type="failure" message="expected 403 to equal 201"/>
+    </testcase>
+    <testcase name="body res=req" status="pass" classname="Ajouter Produit" time="0.115"/>
+  </testsuite>
+</testsuites>
