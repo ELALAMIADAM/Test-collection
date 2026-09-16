@@ -32,7 +32,7 @@ runtime:
       code: |-
         let role = bru.getCollectionVar("role")
         test("code status 201 or 403",()=>{
-          if(role ==="admin") expect(201).equals(res.getStatus())
+          if(bru.getCollectionVar("role") ==="admin") expect(201).equals(res.getStatus())
           else expect(403).equals(res.getStatus())
         })
         test("body res=req",function(){
