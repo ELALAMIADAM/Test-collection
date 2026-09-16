@@ -1,0 +1,37 @@
+info:
+  name: login
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url}}/public/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{email}}",
+        "password": "{{password}}"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("code status 200",()=>{
+          expect(200).equals(res.getStatus())
+        })
+        test("body res=req",function(){
+          let body_req = req.getBody();
+          let body_res = res.getBody();
+          expect(body_req.email).equals(body_res.user.email)
+          expect(body_res).to.have.property("token")
+          bru.setCollectionVar("token", body_res.token)
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

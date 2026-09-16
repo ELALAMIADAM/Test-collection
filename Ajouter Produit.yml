@@ -1,0 +1,57 @@
+info:
+  name: Ajouter Produit
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url}}/public/products"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "{{$randomProductName}}",
+        "description": "{{$randomProduct}}",
+        "price": {{price}},
+        "stock": {{stock}},
+        "image_url": "https://..."
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        let randomPrice = (Math.random()*82.5+20).toFixed(1)
+        let randomStock = Math.floor(Math.random()*41)+20
+        bru.setCollectionVar("price", randomPrice)
+        bru.setCollectionVar("stock", randomStock)
+    - type: after-response
+      code: |-
+        let role = bru.getCollectionVar("role")
+        test("code status 201 or 403",()=>{
+          if(role ==="admin") expect(201).equals(res.getStatus())
+          else expect(403).equals(res.getStatus())
+        })
+        test("body res=req",function(){
+          let body_req = req.getBody();
+          let body_res = res.getBody();
+          if(res.getStatus()===201){
+          expect(body_req.name).equals(body_res.product.name)
+          expect(body_req.description).equals(body_res.product.description)
+          expect(body_req.price).equals(body_res.product.price)
+          expect(body_req.stock).equals(body_res.product.stock)
+          expect(body_req.image_url).equals(body_res.product.image_url)
+          }
+          else if(res.getStatus()===403) expect("Accès réservé aux administrateurs.").equals(body_res.message)
+            
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

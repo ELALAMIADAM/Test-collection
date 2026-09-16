@@ -1,0 +1,38 @@
+opencollection: 1.0.0
+
+info:
+  name: Test collection
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  variables:
+    - name: role
+      value: admin
+    - name: email
+      value: Darrick44@yahoo.com
+    - name: password
+      value: Nty4JTMCgGzNrxQ
+    - name: token
+      value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1c2VyLWFwaSIsInN1YiI6MTkwMiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg5NTUyMjIzLCJleHAiOjE3ODk1NTU4MjMsImp0aSI6IjkyMzYxODdkZmI5NjA3OWMxYmQ2ZTdjNGEyMWE4ZjE5In0.Uivps2zCB5uuthEVd2B2gTeAF3n4ELJqzX8xh9PULDU
+    - name: price
+      value: "96.8"
+    - name: stock
+      value:
+        type: number
+        data: "55"
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

@@ -1,0 +1,51 @@
+info:
+  name: register
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url}}/public/register"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "{{$randomFullName}}",
+        "email": "{{$randomEmail}}",
+        "password": "{{$randomPassword}}",
+        "role": "{{role}}"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        let random = Math.random()
+        let role;
+        if(random >=0.4) role = "user"
+        else role = "admin"
+        bru.setCollectionVar("role", role)
+    - type: after-response
+      code: |-
+        test("code status 201",()=>{
+          expect(201).equals(res.getStatus())
+        })
+        test("body res=req",function(){
+          let body_req = req.getBody();
+          let body_res = res.getBody();
+          expect(body_req.name).equals(body_res.user.name)
+          expect(body_req.email).equals(body_res.user.email)
+          expect(body_req.role).equals(body_res.user.role)
+          expect(body_res.user).to.have.property("id")
+          bru.setCollectionVar("email", body_res.user.email)
+          bru.setCollectionVar("password", body_req.password)
+          
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
